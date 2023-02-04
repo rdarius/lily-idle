@@ -1,20 +1,32 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div id="game">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div id="header">
+      <div id="profile-picture">
+        <img src="/assets/pfp-default.png"/>
+      </div>
+      <div id="currencies">
+        <div id="seeds">{{ getSeeds() }} Seeds</div>
+        <div id="seeds-per-second">0 Seeds/sec</div>
+        <div id="fertilizer">0 Fertilizer</div>
+        <div id="star-dust">0 Start Dust</div>
+        <div id="settings">Q</div>
+      </div>
+    </div>
+    <div id="navigation">
+      <div>Plants</div>
+      <div>Farmers</div>
+      <div>Boosters</div>
+      <div>Upgrades</div>
+      <div>Stats</div>
+    </div>
+    <div id="plants">
+      <ng-container *ngFor="let plant of getPlants()">
+        <app-plant-container
+          [plant]="plant"
+          (onBuy)="onBuy(plant)"
+        ></app-plant-container>
+      </ng-container>
+    </div>
   </div>
 </ion-content>

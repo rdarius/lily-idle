@@ -1,0 +1,26 @@
+<div class="plant-container" *ngIf="plant">
+  <div class="plant-image">
+    <img src="/assets/plant.png" alt="plant" />
+    <div class="plant-level">Lv. {{ plant.level }}</div>
+  </div>
+  <div class="upgrade-button" (click)="buy()">
+    Upgrade to Lv. {{ plant.level + 1 }}<br />
+    {{ getPrice() }} seeds
+  </div>
+  <div class="name">
+    {{ plant.name }}
+  </div>
+  <div class="reward">
+    {{ getReward() }} seeds/plant
+  </div>
+  <app-progress-bar
+    [fill]="progress()"
+    [fillColor]="'#FFD500'"
+    [backgroundColor]="'#005BBB'"
+    [progressBarText]="timeLeft()"
+    class="plant-progress"
+  ></app-progress-bar>
+  <div class="reward-total">
+    + {{ getRewardTotal() }} seeds
+  </div>
+</div>

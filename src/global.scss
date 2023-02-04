@@ -24,3 +24,20 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Solitreo&display=swap');
+:root {
+  --game-width: calc(100vh / 16 * 9)
+}
+
+body {
+  overflow: hidden;
+}
+
+* {
+  font-family: 'Solitreo', cursive;
+  font-size: 2vh;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}

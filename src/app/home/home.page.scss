@@ -1,27 +1,81 @@
-#container {
-  text-align: center;
 
+#game {
+  height: 100vh;
+  width: var(--game-width);
+  background: #edd6ff;
+  margin: auto;
+  position: relative;
+}
+
+#header {
+  display: block;
+  width: var(--game-width);
+  height: calc(100vh / 6);
+  background: #d7a1fa;
+  position: relative;
+  color: black;
+  font-weight: bold;
+}
+
+#profile-picture {
   position: absolute;
+  top: 0;
   left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  height: calc((100vh / 6) - 4vh);
+  aspect-ratio: calc(54/64);
+
+  img {
+    height: calc((100vh / 6) - 4vh);
+    aspect-ratio: calc(54/64);
+    margin: 2vh;
+  }
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+#seeds {
+  position: absolute;
+  top: 3vh;
+  left: calc(var(--game-width) / 2);
+  transform: translate(-50%, 0);
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+#seeds-per-second {
+  position: absolute;
+  top: 6vh;
+  left: calc(var(--game-width) / 2);
+  transform: translate(-50%, 0);
 }
 
-#container a {
-  text-decoration: none;
+#fertilizer {
+  position: absolute;
+  top: 6vh;
+  right: 1vh;
 }
+
+#star-dust {
+  position: absolute;
+  top: 9vh;
+  right: 1vh;
+}
+
+#settings {
+  position: absolute;
+  top: 1vh;
+  right: 1vh;
+}
+
+#navigation {
+  position: relative;
+  height: 3vh;
+  background: #9961c2;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  div {
+    height: 3vh;
+    width: 100%;
+    line-height: 3.6vh;
+    text-align: center;
+  }
+}
+
+

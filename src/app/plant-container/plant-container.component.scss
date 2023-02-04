@@ -1,0 +1,78 @@
+.plant-container {
+  position: relative;
+  width: 100%;
+  height: calc(100vh / 8);
+  background: #005BBB;
+  margin-top: 1vh;
+}
+
+.plant-image {
+  position: absolute;
+  top: 1vh;
+  right: 1vh;
+  height: calc(100vh / 8 - 2vh);
+  width: calc(100vh / 8 - 2vh);
+
+  .plant-level {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1.2em;
+    line-height: 1.6em;
+    text-align: center;
+    background: #0d0d0d66;
+  }
+}
+
+.plant-progress {
+  position: absolute;
+  bottom: 1vh;
+  left: 1vh;
+  width: calc(100% - 1vh - 100vh / 8);
+  height: 3vh;
+  border: 1px solid black;
+}
+
+.reward-total {
+  position: absolute;
+  bottom: 1vh;
+  right: calc(100vh / 8);
+  width: calc((100% - 1vh - 100vh / 8) / 3);
+  text-align: right;
+  padding-right: 1vh;
+  height: 3vh;
+  line-height: 180%;
+}
+
+.upgrade-button {
+  position: absolute;
+  top: 1vh;
+  left: 1vh;
+  text-align: center;
+  height: calc(100vh / 8 - 6vh);
+  line-height: calc((100vh / 8 - 6vh) / 2);
+  background: #FFD500;
+  width: 20vh;
+  color: black;
+  font-weight: bold;
+}
+
+.reward {
+  position: absolute;
+  top: calc(100vh / 16 - 2vh);
+  left: 22vh;
+  text-align: center;
+  height: calc(100vh / 16 - 3vh);
+  line-height: calc(100vh / 16 - 3vh);
+  width: calc(100% - 1vh - 100vh / 8 - 21vh);
+}
+.name {
+  position: absolute;
+  top: 1vh;
+  left: 22vh;
+  text-align: center;
+  height: calc(100vh / 16 - 3vh);
+  line-height: calc(100vh / 16 - 3vh);
+  width: calc(100% - 1vh - 100vh / 8 - 21vh);
+}
