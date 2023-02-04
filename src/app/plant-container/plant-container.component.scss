@@ -76,3 +76,20 @@
   line-height: calc(100vh / 16 - 3vh);
   width: calc(100% - 1vh - 100vh / 8 - 21vh);
 }
+
+.ready-to-harvest {
+  position: absolute;
+  top: 1vh;
+  right: 1vh;
+  height: calc(100vh / 8 - 2vh);
+  width: calc(100vh / 8 - 2vh);
+  background: #1a1a1acc;
+  color: white;
+  line-height: calc(100vh / 25);
+  text-align: center;
+}
+
+
+.disabled {
+  background: #cacaca;
+}

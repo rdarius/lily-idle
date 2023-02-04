@@ -14,18 +14,24 @@
       </div>
     </div>
     <div id="navigation">
-      <div>Plants</div>
-      <div>Farmers</div>
+      <div (click)="activeTab = 0">Plants</div>
+      <div (click)="activeTab = 1">Farmers</div>
       <div>Boosters</div>
       <div>Upgrades</div>
       <div>Stats</div>
     </div>
-    <div id="plants">
+    <div id="plants" *ngIf="activeTab === 0">
       <ng-container *ngFor="let plant of getPlants()">
         <app-plant-container
           [plant]="plant"
-          (onBuy)="onBuy(plant)"
         ></app-plant-container>
+      </ng-container>
+    </div>
+    <div id="farmers" *ngIf="activeTab === 1">
+      <ng-container *ngFor="let plant of getPlants()">
+        <app-farmer-container
+          [plant]="plant"
+        ></app-farmer-container>
       </ng-container>
     </div>
   </div>

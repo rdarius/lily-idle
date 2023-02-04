@@ -1,0 +1,14 @@
+<div class="farmer-container" *ngIf="plant && !plant.isFarmerBought()">
+  <div class="farmer-image">
+    <img src="/assets/plant.png" alt="plant" />
+  </div>
+  <div class="upgrade-button" (click)="buy()" [class.disabled]="!canAfford()">
+    {{ getPrice() }} seeds
+  </div>
+  <div class="name">
+    {{ plant.getPlantData().farmer.name }}
+  </div>
+  <div class="reward">
+    Automated crops gathering for {{plant.getPlantData().name}}
+  </div>
+</div>

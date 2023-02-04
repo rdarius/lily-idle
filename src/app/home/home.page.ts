@@ -3,6 +3,8 @@ import {PlayerService} from "../player.service";
 import {FormulasService} from "../formulas.service";
 import {UtilitiesService} from "../utilities.service";
 import {PlantDto} from "../plant.dto";
+import {PlayerPlantDto} from "../playerPlant.dto";
+import Plant from "../Plant";
 
 @Component({
   selector: 'app-home',
@@ -11,6 +13,8 @@ import {PlantDto} from "../plant.dto";
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomePage {
+
+  public activeTab: number = 0;
 
   constructor(
     private playerService: PlayerService,
@@ -23,16 +27,8 @@ export class HomePage {
     return this.playerService.seeds;
   }
 
-  getPlants(): PlantDto[] {
+  getPlants(): Plant[] {
     return this.playerService.plants;
-  }
-
-  onBuy(plant: PlantDto) {
-    const price = this.formulasService.getPrice(plant.basePrice, plant.growthRate, plant.level);
-    if (price <= this.playerService.seeds) {
-      plant.level += 1;
-      this.playerService.seeds -= price;
-    }
   }
 
   gameLoop() {
@@ -42,12 +38,14 @@ export class HomePage {
     this.playerService.lastTime = currentTime;
 
     for(let plant of this.playerService.plants) {
-      if (plant.level > 0) {
-        plant.timePassed += dt;
+      if (plant.getLevel() > 0) {
+        plant.addTimePassed(dt);
 
-        while (plant.timePassed >= plant.timeToGrow) {
-          this.playerService.seeds += plant.reward * plant.level;
-          plant.timePassed -= plant.timeToGrow;
+        if (plant.getFarberBought()) {
+          while (plant.getTimePassed() >= plant.getPlantData().timeToGrow) {
+            this.playerService.seeds += plant.getRewardTotal();
+            plant.addTimePassed(-plant.getTimeToGrow());
+          }
         }
       }
     }

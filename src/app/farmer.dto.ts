@@ -1,6 +1,5 @@
 export type FarmerDto = {
+  id: number;
   name: string,
-  level: number,
-  basePrice: number,
-  boost: number,
+  price: number,
 }

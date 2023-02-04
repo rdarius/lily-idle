@@ -1,26 +1,27 @@
-<div class="plant-container" *ngIf="plant">
+<div class="plant-container" *ngIf="plant" (click)="plant.harvest()">
   <div class="plant-image">
     <img src="/assets/plant.png" alt="plant" />
-    <div class="plant-level">Lv. {{ plant.level }}</div>
+    <div class="plant-level">Lv. {{ plant.getLevel() }}</div>
   </div>
-  <div class="upgrade-button" (click)="buy()">
-    Upgrade to Lv. {{ plant.level + 1 }}<br />
-    {{ getPrice() }} seeds
+  <div class="upgrade-button" (click)="plant.buy()" [class.disabled]="!plant.canAfford()">
+    Upgrade to Lv. {{ plant.getLevel() + 1 }}<br />
+    {{ plant.getPrice() }} seeds
   </div>
   <div class="name">
-    {{ plant.name }}
+    {{ plant.getPlantData().name }}
   </div>
   <div class="reward">
-    {{ getReward() }} seeds/plant
+    {{ plant.getReward() }} seeds/plant
   </div>
   <app-progress-bar
-    [fill]="progress()"
+    [fill]="plant.progress()"
     [fillColor]="'#FFD500'"
     [backgroundColor]="'#005BBB'"
-    [progressBarText]="timeLeft()"
+    [progressBarText]="plant.timeLeft()"
     class="plant-progress"
   ></app-progress-bar>
   <div class="reward-total">
-    + {{ getRewardTotal() }} seeds
+    + {{ plant.getRewardTotal() }} seeds
   </div>
+  <div class="ready-to-harvest" *ngIf="plant.getTimePassed() > plant.getTimeToGrow()">Ready To Harvest</div>
 </div>

@@ -1,4 +1,4 @@
 <div class="progress-bar-container" [style]="'background: ' + backgroundColor + ';'">
-  <div class="progress-bar-progress" [style]="'width: '+fill+'%; background: ' + fillColor + ';'"></div>
+  <div class="progress-bar-progress" [style]="'width: '+getFill()+'%; background: ' + fillColor + ';'"></div>
   <div class="progress-bar-text">{{ progressBarText }}</div>
 </div>

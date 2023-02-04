@@ -1,0 +1,53 @@
+.farmer-container {
+  position: relative;
+  width: 100%;
+  height: calc(100vh / 8);
+  background: #005BBB;
+  margin-top: 1vh;
+}
+
+.farmer-image {
+  position: absolute;
+  top: 1vh;
+  right: 1vh;
+  height: calc(100vh / 8 - 2vh);
+  width: calc(100vh / 8 - 2vh);
+}
+
+.upgrade-button {
+  position: absolute;
+  top: 1vh;
+  left: 1vh;
+  text-align: center;
+  height: calc(100vh / 8 - 2vh);
+  line-height: calc((100vh / 8 - 2vh) / 2);
+  background: #FFD500;
+  width: 20vh;
+  color: black;
+  font-weight: bold;
+}
+
+.name {
+  position: absolute;
+  top: 1vh;
+  left: 22vh;
+  text-align: center;
+  height: calc(100vh / 16 - 3vh);
+  line-height: calc(100vh / 16 - 3vh);
+  width: calc(100% - 1vh - 100vh / 8 - 21vh);
+}
+
+.reward {
+  position: absolute;
+  top: calc(100vh / 16 - 2vh);
+  left: 22vh;
+  text-align: center;
+  height: calc(100vh / 16 - 3vh);
+  line-height: calc(100vh / 16 - 3vh);
+  width: calc(100% - 1vh - 100vh / 8 - 21vh);
+}
+
+
+.disabled {
+  background: #cacaca;
+}

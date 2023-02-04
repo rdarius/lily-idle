@@ -17,4 +17,10 @@ export class ProgressBarComponent implements OnInit {
 
   ngOnInit() {}
 
+  getFill(): number {
+    if (this.fill < 0) return 0;
+    if (this.fill > 100) return 100;
+    return this.fill;
+  }
+
 }

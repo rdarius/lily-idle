@@ -8,6 +8,7 @@ export class UtilitiesService {
   constructor() { }
 
   convertToTime(num: number) {
+    if (num < 0) num = 0;
     num = Math.round(num / 1000);
     const days = Math.floor(num / 60 / 60 / 24);
     num -= days * 60 * 60 * 24;

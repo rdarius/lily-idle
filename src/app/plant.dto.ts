@@ -1,4 +1,7 @@
+import {FarmerDto} from "./farmer.dto";
+
 export type PlantDto = {
+  id: number,
   name: string,
   level: number,
   basePrice: number,
@@ -6,4 +9,5 @@ export type PlantDto = {
   timeToGrow: number,
   timePassed: number,
   reward: number,
+  farmer: FarmerDto,
 }
