@@ -5,23 +5,23 @@
   </div>
   <div class="upgrade-button" (click)="plant.buy()" [class.disabled]="!plant.canAfford()">
     Upgrade to Lv. {{ plant.getLevel() + 1 }}<br />
-    {{ plant.getPrice() }} seeds
+    {{ plant.getPriceFormatted() }} seeds
   </div>
   <div class="name">
     {{ plant.getPlantData().name }}
   </div>
   <div class="reward">
-    {{ plant.getReward() }} seeds/plant
+    {{ plant.getRewardFormatted() }} seeds/plant
   </div>
   <app-progress-bar
     [fill]="plant.progress()"
     [fillColor]="'#FFD500'"
     [backgroundColor]="'#005BBB'"
+    [fillFontColor]="'#005BBB'"
+    [backgroundFontColor]="'#FFD500'"
     [progressBarText]="plant.timeLeft()"
+    [progressBarTextRight]="plant.getRewardTotalFormatted() + ' seeds'"
     class="plant-progress"
   ></app-progress-bar>
-  <div class="reward-total">
-    + {{ plant.getRewardTotal() }} seeds
-  </div>
-  <div class="ready-to-harvest" *ngIf="plant.getTimePassed() > plant.getTimeToGrow()">Ready To Harvest</div>
+  <div class="ready-to-harvest" *ngIf="plant.getTimePassed() > plant.getTimeToGrow() && !plant.isFarmerBought()">Ready To Harvest</div>
 </div>

@@ -59,11 +59,15 @@ export default class Plant {
 
   public getTimeToGrow(): number {
     if (!this.plant) return 0;
-    return this.plant.timeToGrow;
+    return this.plant.timeToGrow * Math.pow(0.9, Math.floor(this.level / 25));
   }
   getPrice() {
     if (!this.plant) return 0;
     return this.formulasService.getPrice(this.plant.basePrice, this.plant.growthRate, this.level);
+  }
+
+  getPriceFormatted() {
+    return this.utilitiesService.formatNumber(this.getPrice());
   }
 
   buy() {
@@ -85,8 +89,15 @@ export default class Plant {
     return this.plant.reward;
   }
 
+  getRewardFormatted() {
+    return this.utilitiesService.formatNumber(this.getReward());
+  }
+
   getRewardTotal() {
     return this.level * this.getReward();
+  }
+  getRewardTotalFormatted() {
+    return this.utilitiesService.formatNumber(this.getRewardTotal());
   }
 
   progress(): number {

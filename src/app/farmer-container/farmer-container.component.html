@@ -3,7 +3,7 @@
     <img src="/assets/plant.png" alt="plant" />
   </div>
   <div class="upgrade-button" (click)="buy()" [class.disabled]="!canAfford()">
-    {{ getPrice() }} seeds
+    {{ getPriceFormatted() }} seeds
   </div>
   <div class="name">
     {{ plant.getPlantData().farmer.name }}

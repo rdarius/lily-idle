@@ -8,6 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import {PlantContainerComponent} from "../plant-container/plant-container.component";
 import {ProgressBarComponent} from "../progress-bar/progress-bar.component";
 import {FarmerContainerComponent} from "../farmer-container/farmer-container.component";
+import {ProfileComponent} from "../profile/profile.component";
 
 
 @NgModule({
@@ -17,6 +18,6 @@ import {FarmerContainerComponent} from "../farmer-container/farmer-container.com
     IonicModule,
     HomePageRoutingModule
   ],
-    declarations: [HomePage, PlantContainerComponent, ProgressBarComponent, FarmerContainerComponent]
+    declarations: [HomePage, PlantContainerComponent, ProgressBarComponent, FarmerContainerComponent, ProfileComponent]
 })
 export class HomePageModule {}

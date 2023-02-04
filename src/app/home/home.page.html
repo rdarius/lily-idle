@@ -2,8 +2,9 @@
   <div id="game">
 
     <div id="header">
-      <div id="profile-picture">
-        <img src="/assets/pfp-default.png"/>
+      <div id="profile-picture" (click)="activeTab = 10">
+        <app-profile></app-profile>
+<!--        <img src="/assets/pfp-default.png"/>-->
       </div>
       <div id="currencies">
         <div id="seeds">{{ getSeeds() }} Seeds</div>
@@ -14,11 +15,11 @@
       </div>
     </div>
     <div id="navigation">
-      <div (click)="activeTab = 0">Plants</div>
-      <div (click)="activeTab = 1">Farmers</div>
-      <div>Boosters</div>
-      <div>Upgrades</div>
-      <div>Stats</div>
+      <div (click)="activeTab = 0" [class.active]="activeTab === 0">Plants</div>
+      <div (click)="activeTab = 1" [class.active]="activeTab === 1">Farmers</div>
+      <div (click)="activeTab = 2" [class.active]="activeTab === 2">Boosters</div>
+      <div (click)="activeTab = 3" [class.active]="activeTab === 3">Upgrades</div>
+      <div (click)="activeTab = 4" [class.active]="activeTab === 4">Stats</div>
     </div>
     <div id="plants" *ngIf="activeTab === 0">
       <ng-container *ngFor="let plant of getPlants()">
@@ -33,6 +34,38 @@
           [plant]="plant"
         ></app-farmer-container>
       </ng-container>
+    </div>
+    <div id="boosters" *ngIf="activeTab === 2">
+      Coming soon...
+    </div>
+    <div id="upgrades" *ngIf="activeTab === 3">
+      Coming soon...
+    </div>
+    <div id="stats" *ngIf="activeTab === 4">
+      Coming soon...
+    </div>
+    <div id="character" *ngIf="activeTab === 10">
+      <div class="pfp-display">
+        <app-profile></app-profile>
+      </div>
+      <div class="profile-category">
+        <h1>Hats</h1>
+        <div class="image-container">
+          <img *ngFor="let hat of getAllHats(); let i = index" [src]="hat ?? 'assets/blank.png'" (click)="setHat(i)" />
+        </div>
+        <div class="image-container">
+          <img *ngFor="let glasses of getAllGlasses(); let i = index" [src]="glasses ?? 'assets/blank.png'" (click)="setGlasses(i)" />
+        </div>
+        <div class="image-container">
+          <img *ngFor="let hoodie of getAllHoodies(); let i = index" [src]="hoodie ?? 'assets/blank.png'" (click)="setHoodie(i)" />
+        </div>
+        <div class="image-container">
+          <img *ngFor="let pants of getAllPants(); let i = index" [src]="pants ?? 'assets/blank.png'" (click)="setPants(i)" />
+        </div>
+        <div class="image-container">
+          <img *ngFor="let shoes of getAllShoes(); let i = index" [src]="shoes ?? 'assets/blank.png'" (click)="setShoes(i)" />
+        </div>
+      </div>
     </div>
   </div>
 </ion-content>

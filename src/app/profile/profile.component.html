@@ -1,0 +1,8 @@
+<div class="profile">
+  <img src="assets/pfp-default.png" />
+  <img *ngIf="getHat()" [src]="getHat()" />
+  <img *ngIf="getHoodie()" [src]="getHoodie()" />
+  <img *ngIf="getShoes()" [src]="getShoes()" />
+  <img *ngIf="getPants()" [src]="getPants()" />
+  <img *ngIf="getGlasses()" [src]="getGlasses()" />
+</div>

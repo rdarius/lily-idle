@@ -21,14 +21,10 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: calc((100vh / 6) - 4vh);
+  height: calc((100vh / 6));
   aspect-ratio: calc(54/64);
 
-  img {
-    height: calc((100vh / 6) - 4vh);
-    aspect-ratio: calc(54/64);
-    margin: 2vh;
-  }
+  padding: 1vh;
 }
 
 #seeds {
@@ -75,7 +71,35 @@
     width: 100%;
     line-height: 3.6vh;
     text-align: center;
+
+    &.active {
+      background: #3a7be0;
+    }
   }
 }
 
+#boosters, #upgrades, #stats {
+  text-align: center;
+  color: black;
+  font-size: 2rem;
+  padding-top: 10vh;
+}
 
+#plants, #farmers, #character {
+  position: absolute;
+  top: calc(100vh / 6 + 3vh);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+}
+
+.pfp-display {
+  width: 20vh;
+  magrin: 1vh;
+}
+
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}

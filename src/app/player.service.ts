@@ -14,6 +14,14 @@ export class PlayerService {
   public lastTime = Date.now();
   public seeds: number = 0;
   public plants: Plant[] = [];
+
+  public profilePicture = {
+    hat: 0,
+    glasses: 0,
+    hoodie: 0,
+    pants: 0,
+    shoes: 0,
+  }
   constructor(
     private readonly formulasService: FormulasService,
     private readonly utilitiesService: UtilitiesService,
@@ -28,6 +36,7 @@ export class PlayerService {
 
       // this.plants = parsed.plants.map((plant: PlantDto) => ({...this.BlankPlant, ...plant}));
       this.seeds = parsed.seeds;
+      this.profilePicture = parsed.profilePicture ?? this.profilePicture;
       this.lastTime = parsed.lastTime ? parsed.lastTime : Date.now();
     } else {
       // add default plants
@@ -40,7 +49,8 @@ export class PlayerService {
     localStorage.setItem('PlayerSave', JSON.stringify({
       seeds: this.seeds,
       plants: this.plants.map(plant => plant.getSaveData()),
-      lastTime: this.lastTime
+      lastTime: this.lastTime,
+      profilePicture: this.profilePicture,
     }));
   }
 

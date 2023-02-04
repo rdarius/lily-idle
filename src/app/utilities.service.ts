@@ -30,6 +30,18 @@ export class UtilitiesService {
       return (minutes > 9 ? minutes : '0' + minutes) + ':' + (seconds > 9 ? seconds : '0' + seconds);
     }
 
-    return seconds + ' sec';
+    return '00:' + (seconds > 9 ? seconds : '0' + seconds);
+  }
+
+  formatNumber(num: number): string {
+    if (num < 1e3) return num.toString();
+    if (num < 1e6) return Math.round(num)/1e3 + 'k';
+    if (num < 1e9) return Math.floor(num/1e3)/1e3 + 'M';
+    if (num < 1e12) return Math.floor(num/1e6)/1e3 + 'B';
+    if (num < 1e15) return Math.floor(num/1e9)/1e3 + 'T';
+    if (num < 1e18) return Math.floor(num/1e12)/1e3 + 'aa';
+    if (num < 1e21) return Math.floor(num/1e15)/1e3 + 'ab';
+    if (num < 1e24) return Math.floor(num/1e18)/1e3 + 'ac';
+    return '0';
   }
 }

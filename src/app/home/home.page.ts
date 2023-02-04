@@ -5,6 +5,7 @@ import {UtilitiesService} from "../utilities.service";
 import {PlantDto} from "../plant.dto";
 import {PlayerPlantDto} from "../playerPlant.dto";
 import Plant from "../Plant";
+import {ConfigService} from "../config.service";
 
 @Component({
   selector: 'app-home',
@@ -18,17 +19,59 @@ export class HomePage {
 
   constructor(
     private playerService: PlayerService,
-    private formulasService: FormulasService
+    private formulasService: FormulasService,
+    private readonly configService: ConfigService,
+    private readonly utilitiesService: UtilitiesService,
   ) {
     this.gameLoop();
   }
 
-  getSeeds(): number {
-    return this.playerService.seeds;
+  getSeeds(): string {
+    return this.utilitiesService.formatNumber(this.playerService.seeds);
   }
 
   getPlants(): Plant[] {
     return this.playerService.plants;
+  }
+
+  getAllHats() {
+    return this.configService.getHats();
+  }
+
+  getAllGlasses() {
+    return this.configService.getGlasses();
+  }
+
+  getAllHoodies() {
+    return this.configService.getHoodies();
+  }
+
+  getAllPants() {
+    return this.configService.getPants();
+  }
+
+  getAllShoes() {
+    return this.configService.getShoes();
+  }
+
+  setHat(index: number) {
+    this.playerService.profilePicture.hat = index;
+  }
+
+  setGlasses(index: number) {
+    this.playerService.profilePicture.glasses = index;
+  }
+
+  setHoodie(index: number) {
+    this.playerService.profilePicture.hoodie = index;
+  }
+
+  setPants(index: number) {
+    this.playerService.profilePicture.pants = index;
+  }
+
+  setShoes(index: number) {
+    this.playerService.profilePicture.shoes = index;
   }
 
   gameLoop() {
@@ -42,7 +85,7 @@ export class HomePage {
         plant.addTimePassed(dt);
 
         if (plant.getFarberBought()) {
-          while (plant.getTimePassed() >= plant.getPlantData().timeToGrow) {
+          while (plant.getTimePassed() >= plant.getTimeToGrow()) {
             this.playerService.seeds += plant.getRewardTotal();
             plant.addTimePassed(-plant.getTimeToGrow());
           }
