@@ -10,4 +10,5 @@ export type PlantDto = {
   timePassed: number,
   reward: number,
   farmer: FarmerDto,
+  image: string,
 }

@@ -8,10 +8,10 @@
       </div>
       <div id="currencies">
         <div id="seeds">{{ getSeeds() }} Seeds</div>
-        <div id="seeds-per-second">0 Seeds/sec</div>
-        <div id="fertilizer">0 Fertilizer</div>
-        <div id="star-dust">0 Start Dust</div>
-        <div id="settings">Q</div>
+        <div id="seeds-per-second">{{ getSeedsPerSecond() }} Seeds/sec</div>
+<!--        <div id="fertilizer">0 Fertilizer</div>-->
+<!--        <div id="star-dust">0 Start Dust</div>-->
+<!--        <div id="settings">Q</div>-->
       </div>
     </div>
     <div id="navigation">
@@ -53,15 +53,19 @@
         <div class="image-container">
           <img *ngFor="let hat of getAllHats(); let i = index" [src]="hat ?? 'assets/blank.png'" (click)="setHat(i)" />
         </div>
+        <h1>Glasses</h1>
         <div class="image-container">
           <img *ngFor="let glasses of getAllGlasses(); let i = index" [src]="glasses ?? 'assets/blank.png'" (click)="setGlasses(i)" />
         </div>
+        <h1>Hoodies</h1>
         <div class="image-container">
           <img *ngFor="let hoodie of getAllHoodies(); let i = index" [src]="hoodie ?? 'assets/blank.png'" (click)="setHoodie(i)" />
         </div>
+        <h1>Pants</h1>
         <div class="image-container">
           <img *ngFor="let pants of getAllPants(); let i = index" [src]="pants ?? 'assets/blank.png'" (click)="setPants(i)" />
         </div>
+        <h1>Shoes</h1>
         <div class="image-container">
           <img *ngFor="let shoes of getAllShoes(); let i = index" [src]="shoes ?? 'assets/blank.png'" (click)="setShoes(i)" />
         </div>

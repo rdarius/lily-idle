@@ -30,6 +30,16 @@ export class HomePage {
     return this.utilitiesService.formatNumber(this.playerService.seeds);
   }
 
+  getSeedsPerSecond(): string {
+    let sps = 0;
+
+    for(let plant of this.playerService.plants) {
+      sps += plant.getRewardTotal() / (plant.getTimeToGrow() / 1000);
+    }
+
+    return this.utilitiesService.formatNumber(Math.round(sps));
+  }
+
   getPlants(): Plant[] {
     return this.playerService.plants;
   }

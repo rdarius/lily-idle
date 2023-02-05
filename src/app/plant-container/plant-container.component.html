@@ -1,6 +1,6 @@
 <div class="plant-container" *ngIf="plant" (click)="plant.harvest()">
   <div class="plant-image">
-    <img src="/assets/plant.png" alt="plant" />
+    <img [src]="plant.getPlantData().image" alt="plant" />
     <div class="plant-level">Lv. {{ plant.getLevel() }}</div>
   </div>
   <div class="upgrade-button" (click)="plant.buy()" [class.disabled]="!plant.canAfford()">

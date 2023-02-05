@@ -30,7 +30,7 @@ export class PlayerService {
     if (data) {
       const parsed = JSON.parse(data);
 
-      for (let index = 1; index < Plants.getPlantCount(); index++) {
+      for (let index = 1; index <= Plants.getPlantCount(); index++) {
         this.plants.push(new Plant({...(parsed.plants.find((x: any) => x.id === index) ?? {}), id: index}, formulasService, this, utilitiesService));
       }
 
@@ -40,6 +40,9 @@ export class PlayerService {
       this.lastTime = parsed.lastTime ? parsed.lastTime : Date.now();
     } else {
       // add default plants
+      for (let index = 1; index < Plants.getPlantCount(); index++) {
+        this.plants.push(new Plant({id: index}, formulasService, this, utilitiesService));
+      }
     }
   }
 

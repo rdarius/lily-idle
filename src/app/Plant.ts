@@ -21,7 +21,7 @@ export default class Plant {
     private readonly utilitiesService: UtilitiesService,
     ) {
     this.id = data.id ?? 0;
-    this.level = data.level ?? 0;
+    this.level = data.level ?? (this.id === 1 ? 1 : 0);
     this.timePassed = data.timePassed ?? 0;
     this.farmerBough = data.farmerBough ?? false;
     this.plant = Plants.getPlant(this.id);
@@ -86,7 +86,7 @@ export default class Plant {
 
   getReward() {
     if (!this.plant) return 0;
-    return this.plant.reward;
+    return Math.floor(this.plant.reward * Math.pow(1.2, Math.floor(this.level / 10)));
   }
 
   getRewardFormatted() {

@@ -1,6 +1,6 @@
 <div class="farmer-container" *ngIf="plant && !plant.isFarmerBought()">
   <div class="farmer-image">
-    <img src="/assets/plant.png" alt="plant" />
+    <img [src]="plant.getPlantData().farmer.image" alt="plant" />
   </div>
   <div class="upgrade-button" (click)="buy()" [class.disabled]="!canAfford()">
     {{ getPriceFormatted() }} seeds

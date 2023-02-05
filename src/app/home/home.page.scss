@@ -96,10 +96,31 @@
 
 .pfp-display {
   width: 20vh;
-  magrin: 1vh;
+  margin: 1vh auto;
+  border: 1px solid black;
 }
-
+.profile-category {
+  position: absolute;
+  overflow-y: scroll;
+  top: 25vh;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
 .image-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1vh;
+  margin: 0 1vh;
+
+  img {
+    border: 1px solid black;
+    border-radius: 8px;
+    background: white;
+  }
+}
+
+h1 {
+  color: black;
+  text-align: center;
 }
